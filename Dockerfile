@@ -1,4 +1,4 @@
-FROM php:7.4-apache
+FROM php:7.3-apache
 
 WORKDIR /var/www/html
 
@@ -10,6 +10,8 @@ RUN apt-get install -y \
     curl \
     sudo \
     nano \
+    zlib1g-dev \
+    libzip-dev \
     unzip \
     libicu-dev \
     libbz2-dev \
