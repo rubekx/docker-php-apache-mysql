@@ -1,4 +1,3 @@
-#
 FROM php:7.3-apache
 
 WORKDIR /var/www/html
@@ -45,24 +44,13 @@ RUN apt-get update && apt-get install -y libc-client-dev libkrb5-dev && rm -r /v
 RUN docker-php-ext-configure imap --with-kerberos --with-imap-ssl \
     && docker-php-ext-install imap
 
-
 COPY configs/apache/000-default.conf /etc/apache2/sites-available/000-default.conf
-
-
-COPY configs/apache/hello-cron /etc/cron.d/hello-cron
-
-# Give execution rights on the cron job
-RUN chmod 0644 /etc/cron.d/hello-cron
-
-# Apply cron job
-RUN crontab /etc/cron.d/hello-cron
-
-# Create the log file to be able to run tail
-RUN touch /var/log/cron.log
-
-# Run the command on container startup
-CMD cron && tail -f /var/log/cron.log
 
 RUN a2enmod rewrite
 
-CMD ["cron", "-f"]
+COPY configs/cron/crontab /etc/cron.d/cool-task
+
+RUN chmod 0644 /etc/cron.d/cool-task
+
+RUN service cron start
+
