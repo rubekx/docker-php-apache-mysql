@@ -1,4 +1,5 @@
 #!/bin/bash
+cd /var/www/html/
 echo "Install Laravel's dependencies:"
 php /usr/local/bin/composer install 
 echo "Copy .env.example to .env:"
@@ -10,3 +11,4 @@ sudo chgrp -R www-data storage bootstrap/cache
 echo "Set the file permissions in Laravel:"
 sudo chmod -R ug+rwx storage bootstrap/cache
 echo "installation completed."
+exit
