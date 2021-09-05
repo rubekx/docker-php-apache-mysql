@@ -6,8 +6,11 @@ services:
     build: .
     restart: unless-stopped
     volumes:
-      - ./app:/var/www/html      
+      - ./app:/var/www/html     
+      - ./configs/run.sh:/var/www/html/run.sh      
       - ./configs/php/php.ini:/usr/local/etc/php/php.ini
+      - ./configs/cron/crontab:/etc/cron.d/cool-task
+      - ./configs/apache/000-default.conf:/etc/apache2/sites-available/000-default.conf
     ports:
       - ${HOST_EXT_PORT}:80
     networks:

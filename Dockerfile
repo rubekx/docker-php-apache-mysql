@@ -44,7 +44,7 @@ RUN apt-get update && apt-get install -y libc-client-dev libkrb5-dev && rm -r /v
 RUN docker-php-ext-configure imap --with-kerberos --with-imap-ssl \
     && docker-php-ext-install imap
 
-COPY configs/apache/000-default.conf /etc/apache2/sites-available/000-default.conf
+#COPY configs/apache/000-default.conf /etc/apache2/sites-available/000-default.conf
 
 RUN a2enmod rewrite
 
@@ -54,3 +54,8 @@ RUN chmod 0644 /etc/cron.d/cool-task
 
 RUN service cron start
 
+# COPY configs/run.sh /var/www/html/run.sh
+
+# COPY configs/testete.txt /var/www/html/testete.txt
+
+# RUN sh /var/www/html/run.sh
