@@ -5,6 +5,7 @@ This project is recommended for applications that use LAMP stack, with docker yo
 To use this project you need to create your web application inside the app folder, or rename your application to app.
 
 - Docker
-- php:7.4-apache
+- php:7.3-apache
 - Composer 2.1.6
 - Mysql 5.7
+- phpMyAdmin
