@@ -52,6 +52,6 @@ RUN chmod 0644 /etc/cron.d/cool-task
 
 RUN service cron start
 
-CMD [ "sh", "/var/www/html/run.sh" ]
+CMD ["sh","/var/www/html/run.sh","apache2-foreground"]
 
-CMD ["apache2-foreground"]
+# CMD ["apache2-foreground"]
