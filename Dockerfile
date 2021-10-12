@@ -46,11 +46,11 @@ RUN docker-php-ext-configure imap --with-kerberos --with-imap-ssl \
 
 RUN a2enmod rewrite
 
-COPY configs/cron/crontab /etc/cron.d/cool-task
+RUN echo "* * * * * root php /var/www/html/artisan schedule:run >> /var/log/cron.log 2>&1" >> /etc/crontab
 
-RUN chmod 0644 /etc/cron.d/cool-task
+RUN touch /var/log/cron.log
 
-RUN service cron start
+RUN service cron restart
 
 CMD ["sh","/var/www/html/run.sh","apache2-foreground"]
 
