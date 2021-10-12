@@ -1,2 +1,1 @@
-* * * * * echo "Hello world" >> /var/log/cron.log 2>&1
-# An empty line is required at the end of this file for a valid cron file.
+* * * * * php /var/www/html/artisan schedule:run 1>> /dev/null 2>&1
