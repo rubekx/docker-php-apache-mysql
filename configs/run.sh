@@ -11,4 +11,6 @@ sudo chgrp -R www-data storage bootstrap/cache
 echo "Set the file permissions in Laravel:"
 sudo chmod -R ug+rwx storage bootstrap/cache
 echo "installation completed."
+sudo service cron restart
+echo 'restart cron'
 apache2-foreground

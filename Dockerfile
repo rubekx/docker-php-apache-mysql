@@ -50,8 +50,6 @@ RUN echo "* * * * * root php /var/www/html/artisan schedule:run >> /var/log/cron
 
 RUN touch /var/log/cron.log
 
-RUN service cron restart
-
 CMD ["sh","/var/www/html/run.sh","apache2-foreground"]
 
 # CMD ["apache2-foreground"]
