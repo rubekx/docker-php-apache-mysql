@@ -1,16 +1,17 @@
 #!/bin/bash
 
 #REDES
-rede_a='abtms-admin_rede'
-rede_b='abtms-associado_rede'
+rede_a='A_rede'
+rede_b='B_rede'
 
 #CONAINERS
-container_a1='associado-app'
-container_a2='associado-mysql'
-container_a3='associado-phpmyadmin'
-container_b1='admin-app'
-container_b2='admin-mysql'
-container_b3='admin-phpmyadmin'
+container_a1='B-app'
+container_a2='B-mysql'
+container_a3='B-phpmyA'
+
+container_b1='A-app'
+container_b2='A-mysql'
+container_b3='A-phpmyA'
 
 echo 'Conectando conainters A com a rede B'
 sudo docker network connect $rede_b $container_a1
